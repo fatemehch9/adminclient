@@ -5,24 +5,20 @@ import { RegisterComponent } from './components/register/register.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
-import { authroutes } from './routes/routes';
 import { AuthComponent } from './auth.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AuthService } from './services/auth.service';
 import {HttpClientModule} from '@angular/common/http';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-
+import { AuthRoutingModule } from './auth-routing.module';
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(authroutes),
     CommonModule,
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    BrowserAnimationsModule,
+    AuthRoutingModule
  ],
   declarations: [
     AuthComponent,

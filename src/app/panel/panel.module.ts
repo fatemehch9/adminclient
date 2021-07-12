@@ -2,17 +2,16 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { PanelComponent } from './panel.component';
 import { AppRoutingModule } from '../app-routing.module';
-import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-import { panelroutes } from './routes/routes';
+import { AuthService } from '../auth/services/auth.service';
+import { PanelRoutingModule } from './panel-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    BrowserModule,
     AppRoutingModule,
-    RouterModule.forRoot(panelroutes)
+    PanelRoutingModule
   ],
-  declarations: [PanelComponent]
+  declarations: [PanelComponent],
+  providers: [AuthService]
 })
 export class PanelModule { }

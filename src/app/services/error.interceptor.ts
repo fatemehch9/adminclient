@@ -19,7 +19,7 @@ export class ErrorInterceptor implements HttpInterceptor {
                     if (appError) {
                         return  throwError(appError);
                     }
-                    // model state error
+                  // model state error
                     const serverError = error.error.errors;
                     let modelStateError = '';
                     if (serverError && typeof serverError === 'object') {
@@ -40,8 +40,7 @@ export class ErrorInterceptor implements HttpInterceptor {
 
                     return throwError(modelStateError || myError || myserverError || 'خطایی رخ داده است');
                 }
-                return throwError(error);
-                
+                return throwError(error);  
             })
         );
     }

@@ -3,6 +3,8 @@ import { from } from 'rxjs';
 import '../../assets/vendors/js/chartist.min.js';
 import'../../assets/js/dashboard-ecommerce.js';
 import { Router } from '@angular/router';
+import { AuthService } from '../auth/services/auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 //import Chartist from '../../assets/vendors/js/chartist.min.js';
 declare var Chartist:any;
@@ -13,8 +15,8 @@ declare var Chartist:any;
   styleUrls: ['./panel.component.css']
 })
 export class PanelComponent implements OnInit {
-
-  constructor(private router:Router) {
+  decodedtoken6=localStorage.getItem('username');
+  constructor(private router:Router, public authservice : AuthService,private toastr:ToastrService) {
   }
 
   ngOnInit() {
@@ -23,6 +25,11 @@ export class PanelComponent implements OnInit {
   logout(){
     localStorage.removeItem('token');
     this.router.navigate(['/auth/login'])
+    this.toastr.warning('با موفقیت خارج شدید','خروج');
+  }
+  logedin(){
+    return this.authservice.logedin();
+
   }
  loadChart() {
     // Widget Area Chart 1 Starts
